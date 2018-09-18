@@ -1,0 +1,38 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card card-plain">
+                  
+                  <div class="card-body">
+                      <div class="table-responsive">
+                          <table class="table table-hover">
+                              <thead class="">
+                                  <th>
+                                    PageFrom
+                                  </th>
+                                  <th>
+                                      DateCreated
+                                  </th>
+                                  <th>
+                                      ZipCode
+                                  </th>
+                                  
+                              </thead>
+                              <tbody>
+                                  <tr *ngFor="let user of visitedUsers | async">
+                                      <td>{{ user.pageFrom}}</td>
+                                      <td>{{ user.dateCreated }}</td>
+                                      <td>{{ user.zipCode }}</td>
+                                  </tr>
+
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
