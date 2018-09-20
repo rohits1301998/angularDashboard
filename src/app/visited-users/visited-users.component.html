@@ -4,7 +4,7 @@
           <div class="col-md-12">
               <div class="card card-plain">
                   
-                  <div class="card-body">
+                  <div class="card-body" *ngIf="(visitedUsers | async)?.length > 0; else loading">
                       <div class="table-responsive">
                           <table class="table table-hover">
                               <thead class="">
@@ -14,25 +14,67 @@
                                   <th>
                                       DateCreated
                                   </th>
+                                    <th>
+                                        UserBrowser
+                                    </th>
+                                    <th>
+                                        UserCity
+                                    </th>
+                                    <th>
+                                        UserCountry
+                                    </th>
+                                    <th>
+                                        UserDevice
+                                    </th>
+                                    <th>
+                                        UserGeoZipCode
+                                    </th>
+                                    <th>
+                                        UserIP
+                                    </th>
+                                    <th>
+                                        UserOS
+                                    </th>
+                                    <th>
+                                        UserRegion
+                                    </th>
+                                    <th>
+                                        UserRegionCode
+                                    </th>    
                                   <th>
                                       ZipCode
                                   </th>
                                   
                               </thead>
                               <tbody>
-                                  <tr *ngFor="let user of visitedUsers | async">
-                                      <td>{{ user.pageFrom}}</td>
-                                      <td>{{ user.dateCreated }}</td>
-                                      <td>{{ user.zipCode }}</td>
+                                  <tr *ngFor="let user of visitedUsers | async| orderBy:'dateCreated' |paginate: { itemsPerPage: 10, currentPage: p }">
+                                      <td>{{ user.pageFrom ? user.pageFrom : 'empty'}}</td>
+                                      <td>{{ user.dateCreated ?user.dateCreated : 'empty' }}</td>
+                                      <td>{{ user.userBrowser ?user.userBrowser : 'empty' }}</td>
+                                      <td>{{ user.userCity ?user.userCity : 'empty' }}</td>
+                                      <td>{{ user.userCountry ?user.userCountry : 'empty' }}</td>
+                                      <td>{{ user.userDevice ?user.userDevice : 'empty' }}</td>
+                                      <td>{{ user.userGeoZipCode ?user.userGeoZipCode : 'empty' }}</td>
+                                      <td>{{ user.userIP ?user.userIP : 'empty' }}</td>
+                                      <td>{{ user.UserOs ?user.UserOs : 'empty' }}</td>
+                                      <td>{{ user.userRegion ?user.userRegion : 'empty' }}</td>
+                                      <td>{{ user.userRegionCode ?user.userRegionCode : 'empty' }}</td>
+                                      <td>{{ user.zipCode ?user.zipCode : 'empty' }}</td>
+                                      
                                   </tr>
 
                               </tbody>
                           </table>
+                          
                       </div>
                   </div>
               </div>
           </div>
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
       </div>
+      <ng-template #loading>
+            <mat-spinner></mat-spinner>
+          </ng-template>
   </div>
 </div>
 

@@ -8,14 +8,13 @@ import { Observable } from 'rxjs/Observable';
 })
 export class VisitedUsersComponent implements OnInit {
   visitedUsers:Observable<any>;
+  p: number = 1;
   constructor(private firebase:FirebaseService) { }
 
   ngOnInit() {
     //console.log(this.firebase.visitedUsersObservable);
-    this.visitedUsers = this.firebase.setVisitedUsers('/zipCodesEntered');
-    this.visitedUsers.subscribe((data)=>{
-      console.log(data);
-    });
+    this.visitedUsers = this.firebase.getData('/zipCodesEntered');
+
     
   }
 

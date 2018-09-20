@@ -7,7 +7,10 @@ import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { UserProfileComponent } from '../../user-profile/user-profile.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { VisitedUsersComponent } from '../../visited-users/visited-users.component';
-
+import { RegisteredUsersComponent } from '../../registered-users/registered-users.component';
+import {NgxPaginationModule} from 'ngx-pagination'; 
+import { OrderModule } from 'ngx-order-pipe';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import {
   MatButtonModule,
@@ -24,12 +27,16 @@ import {
     MatRippleModule,
     MatInputModule,
     MatTooltipModule,
+    NgxPaginationModule,
+    OrderModule,
+    MatProgressSpinnerModule
   ],
   declarations: [
     DashboardComponent,
     UserProfileComponent,
     NotificationsComponent,
-    VisitedUsersComponent
+    VisitedUsersComponent,
+    RegisteredUsersComponent
   ]
 })
 

@@ -1,0 +1,56 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12" >
+              <div class="card card-plain">  
+                  <div class="card-body"  *ngIf="(registeredUsers | async)?.length > 0; else loading">
+                      <div class="table-responsive">
+                          <table class="table table-hover">
+                              <thead class="">
+                                  <th>
+                                    Email
+                                  </th>
+                                  <th>
+                                      DateCreated
+                                  </th>
+                                    <th>
+                                        FirstName
+                                    </th>
+                                    <th>
+                                        LastName
+                                    </th>
+                                    <th>
+                                        ReferralCode
+                                    </th>
+                                    <th>
+                                        Role
+                                    </th>
+                                    
+                                  
+                              </thead>
+                              <tbody>
+                                  <tr *ngFor="let user of registeredUsers | async | orderBy:'dateCreated' |paginate: { itemsPerPage: 10, currentPage: p }">
+                                      <td>{{ user.email ? user.email : 'empty'}}</td>
+                                      <td>{{ user.dateCreated ?user.dateCreated : 'empty' }}</td>
+                                      <td>{{ user.firstName ?user.firstName : 'empty' }}</td>
+                                      <td>{{ user.lastName ?user.lastName : 'empty' }}</td>
+                                      <td>{{ user.referralCode ?user.referralCode : 'empty' }}</td>
+                                      <td>{{ user.role ?user.role : 'empty' }}</td>
+                                        
+                                  </tr>
+
+                              </tbody>
+                          </table>
+                          
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+      <ng-template #loading>
+        <mat-spinner></mat-spinner>
+      </ng-template>
+  </div>
+</div>
+

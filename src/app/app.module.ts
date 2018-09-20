@@ -8,11 +8,6 @@ import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 
 import { AppComponent } from './app.component';
-
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
-
-import { NotificationsComponent } from './notifications/notifications.component';
 import {
   AgmCoreModule
 } from '@agm/core';
@@ -22,6 +17,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { FirebaseService } from './firebase.service';
+
 
 @NgModule({
   imports: [
@@ -35,7 +31,7 @@ import { FirebaseService } from './firebase.service';
     }),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
   ],
   declarations: [
     AppComponent,

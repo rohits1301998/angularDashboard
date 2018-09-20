@@ -5,6 +5,7 @@ import { UserProfileComponent } from '../../user-profile/user-profile.component'
 
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { VisitedUsersComponent } from '../../visited-users/visited-users.component';
+import { RegisteredUsersComponent } from '../../registered-users/registered-users.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -52,5 +53,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'notifications',  component: NotificationsComponent },
-    { path: 'visited-users',  component: VisitedUsersComponent }
+    { path: 'visited-users',  component: VisitedUsersComponent },
+    { path: 'registered-users',component:RegisteredUsersComponent}
 ];
